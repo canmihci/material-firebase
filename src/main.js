@@ -2,18 +2,24 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import ElementUI from 'element-ui'
 import VueFire from 'vuefire'
 import firebaseApp from './firebase'
 import 'vue-awesome/icons'
-import 'element-ui/lib/theme-default/index.css'
 import store from './store'
 import router from './router'
 import Icon from 'vue-awesome/components/Icon.vue'
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.css'
+// import 'vue2-animate/dist/vue2-animate.min.css'
+import Toasted from 'vue-toasted'
 
+Vue.use(Toasted, {
+  duration: 2000,
+  position: 'top-left'
+})
 Vue.config.productionTip = false
 Vue.use(VueFire)
-Vue.use(ElementUI)
+Vue.use(VueMaterial)
 Vue.component('icon', Icon)
 
 var db = firebaseApp.database()
